@@ -6,7 +6,7 @@
   "scripts": {
     "build": "webpack --mode production",
     "build:watch": "webpack --watch",
-    "dev": "nodemon server",
+    "dev": "nodemon server/index.js",
     "start": "node server"
   },
   "repository": {
@@ -21,7 +21,9 @@
   },
   "homepage": "https://github.com/CCBaxter84/Cryptocurrency-Charting-Tool#readme",
   "dependencies": {
+    "axios": "^0.21.1",
     "bootstrap": "^4.5.3",
+    "chart.js": "^2.9.4",
     "express": "^4.17.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1"
@@ -34,6 +36,7 @@
     "@babel/preset-env": "^7.12.11",
     "@babel/preset-react": "^7.12.10",
     "babel-loader": "^8.2.2",
+    "nodemon": "^2.0.7",
     "webpack": "^5.11.1",
     "webpack-cli": "^4.3.1"
   }
