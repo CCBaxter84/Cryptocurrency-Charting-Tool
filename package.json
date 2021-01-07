@@ -1,0 +1,40 @@
+{
+  "name": "Cryptocurrency-Charting-Tool",
+  "version": "1.0.0",
+  "description": "#Scripts",
+  "main": "webpack.config.js",
+  "scripts": {
+    "build": "webpack --mode production",
+    "build:watch": "webpack --watch",
+    "dev": "nodemon server",
+    "start": "node server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CCBaxter84/Cryptocurrency-Charting-Tool.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CCBaxter84/Cryptocurrency-Charting-Tool/issues"
+  },
+  "homepage": "https://github.com/CCBaxter84/Cryptocurrency-Charting-Tool#readme",
+  "dependencies": {
+    "bootstrap": "^4.5.3",
+    "express": "^4.17.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.12.10",
+    "@babel/core": "^7.12.10",
+    "@babel/plugin-transform-runtime": "^7.12.10",
+    "@babel/polyfill": "^7.12.1",
+    "@babel/preset-env": "^7.12.11",
+    "@babel/preset-react": "^7.12.10",
+    "babel-loader": "^8.2.2",
+    "webpack": "^5.11.1",
+    "webpack-cli": "^4.3.1"
+  }
+}
