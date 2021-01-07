@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Chart from 'chart.js';
 import axios from 'axios';
+import './App.css';
 
 function App() {
   const [ dates, setDates ] = useState([]);
@@ -16,7 +17,7 @@ function App() {
       const res = await axios.get('https://api.coindesk.com/v1/bpi/historical/close.json');
       setDates(Object.keys(res.data.bpi));
       setBitcoinPrice(Object.values(res.data.bpi));
-    } catch(error) {
+    } catch (error) {
       console.log(error);
     }
   };
@@ -30,11 +31,16 @@ function App() {
         datasets: [
           {
             label: 'Bitcoint Price Index',
-            data: bitcoinPrice
+            data: bitcoinPrice,
+            backgroundColor: 'lightblue',
+            borderColor: 'blue'
           }
         ]
+      },
+      options: {
+        responsiveness: true
       }
-    })
+    });
   };
 
   return (
