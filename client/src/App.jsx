@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import Chart from 'chart.js';
 import axios from 'axios';
 import './App.css';
+import Header from './components/Header.jsx';
+import Footer from './components/Footer.jsx';
 
 function App() {
   const [ dates, setDates ] = useState([]);
@@ -10,13 +12,21 @@ function App() {
   useEffect(() => {
     getData();
     createChart();
-  }, [dates]);
+  }, [dates, bitcoinPrice]);
 
   const getData = async () => {
     try {
       const res = await axios.get('https://api.coindesk.com/v1/bpi/historical/close.json');
-      setDates(Object.keys(res.data.bpi));
-      setBitcoinPrice(Object.values(res.data.bpi));
+      const currentDates = JSON.stringify(dates);
+      const newDates = JSON.stringify(Object.keys(res.data.bpi));
+      if (currentDates !== newDates) {
+        setDates(Object.keys(res.data.bpi));
+      }
+      const currentPrice = JSON.stringify(bitcoinPrice);
+      const newPrice = JSON.stringify(Object.values(res.data.bpi));
+      if (currentPrice !== newPrice) {
+        setBitcoinPrice(Object.values(res.data.bpi));
+      }
     } catch (error) {
       console.log(error);
     }
@@ -45,7 +55,9 @@ function App() {
 
   return (
     <div className='App'>
+      <Header />
       <canvas id='myChart' width='400' height='400' />
+      <Footer />
     </div>
   );
 };
